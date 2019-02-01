@@ -8,16 +8,16 @@
 
 [general]
 name=C&R Redistricter
-qgisMinimumVersion=2.0
+qgisMinimumVersion=3.0
 qgisMaximumVersion=3.99
 description=Easily create political districts of equal population
 version=1.0
 author=John Holden
 email=jholden@clarityandrigour.com
-about=The C&R Redistricter allows you to easily redistrict a map into areas of equal population. Developed by John Holden, Clarity and Rigour LLC. Special thanks to Zach Alexopoulos; Dheeraj Chand; Moussa Dia and Robert Rose, the William & Mary Center for Geospatial Analysis; the William & Mary Election Law Society; and the University of Arizona Geography Department.
+about=The C&R Redistricter for QGISv3 allows you to easily redistrict a map into areas of equal population. Developed by John Holden, Clarity and Rigour LLC. Special thanks to Zach Alexopoulos; Dheeraj Chand; Moussa Dia and Robert Rose, the William & Mary Center for Geospatial Analysis; the William & Mary Election Law Society; and the University of Arizona Geography Department.
 
 tracker=http://www.clarityandrigour.com
-repository=http://repo
+repository=https://github.com/clarityandrigour/qgisv3redistricter
 # End of mandatory metadata
 
 # Recommended items:

@@ -1,5 +1,5 @@
 # qgisredistricter
-The Clarity & Rigour QGIS Redistricter allows you to easily redistrict a map into areas of equal population.
+The Clarity & Rigour QGIS Redistricter allows you to easily redistrict a map into areas of equal population. This version works with QGIS v3 and above.
 
 Features include:
 * support for target population/variation
