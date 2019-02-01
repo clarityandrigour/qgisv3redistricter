@@ -1,0 +1,39 @@
+# This file contains metadata for your plugin. Since 
+# version 2.0 of QGIS this is the proper way to supply 
+# information about a plugin. The old method of 
+# embedding metadata in __init__.py will 
+# is no longer supported since version 2.0.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=C&R Redistricter
+qgisMinimumVersion=2.0
+qgisMaximumVersion=3.99
+description=Easily create political districts of equal population
+version=1.0
+author=John Holden
+email=jholden@clarityandrigour.com
+about=The C&R Redistricter allows you to easily redistrict a map into areas of equal population. Developed by John Holden, Clarity and Rigour LLC. Special thanks to Zach Alexopoulos; Dheeraj Chand; Moussa Dia and Robert Rose, the William & Mary Center for Geospatial Analysis; the William & Mary Election Law Society; and the University of Arizona Geography Department.
+
+tracker=http://www.clarityandrigour.com
+repository=http://repo
+# End of mandatory metadata
+
+# Recommended items:
+
+# Uncomment the following line and add your changelog:
+changelog= 1.0 - first stable release
+
+# Tags are comma separated with spaces allowed
+tags=redistricting,reapportionment,vector
+
+homepage=http://www.clarityandrigour.com
+category=Plugins
+icon=icon.png
+# experimental flag
+experimental=False
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+
