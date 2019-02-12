@@ -351,8 +351,8 @@ class CandRRedistrict(object):
         for feature in selection:
 #                try:
                         QgsMessageLog.logMessage(format(locked))
-                        QgsMessageLog.logMessage(districtName[str(feature[self.distfield])])
-                        if locked[districtName[str(feature[self.distfield])]] == 0:
+                        QgsMessageLog.logMessage(str(districtId[str(feature[self.distfield])]))
+                        if locked[str(districtId[str(feature[self.distfield])])] == 0:
                                 self.updateFeatureValue(feature)
 #                except:
 #                        self.updateFeatureValue(feature)
@@ -383,7 +383,7 @@ class CandRRedistrict(object):
                         d.field_sum[0] = d.field_sum[0] - feature[d.name]
                         d.total_sum = d.total_sum - feature[d.name]
 
-        QgsMessageLog.logMessage(districtId[str(feature[self.distfield])])
+        QgsMessageLog.logMessage(str(districtId[str(feature[self.distfield])]))
         self.activeLayer.changeAttributeValue(feature.id(),field_id,districtName[self.activedistrict])
         newId = int(districtId[str(districtName[self.activedistrict])])
 
@@ -601,7 +601,10 @@ class CandRRedistrict(object):
                                 symbol.changeSymbolLayer(0, symbol_layer)
 
                         # create renderer object
-                        category = QgsRendererCategory(districtName[cat], symbol, str(districtName[cat]))
+                        if cat == 0:
+                                category = QgsRendererCategory("", symbol, "")
+                        else:
+                                category = QgsRendererCategory(districtName[cat], symbol, str(districtName[cat]))
                         # entry for the list of category items
                         categories.append(category)
                 renderer = QgsCategorizedSymbolRenderer(self.distfield, categories)
@@ -642,11 +645,11 @@ class CandRRedistrict(object):
 #                        QgsMessageLog.logMessage(self.distfield + " failed on load")
                 for d in dataFieldList:
                         try:
-                                d.field_sum[int(districtId[str(feature[self.distfield])])] = d.field_sum[int(districtId[str(feature[self.distfield])])] + feature[d.name]
-                                d.total_sum = d.total_sum + feature[d.name]
+                                d.field_sum[int(districtId[str(feature[self.distfield])])] = d.field_sum[int(districtId[str(feature[self.distfield])])] + int(feature[d.name])
+                                d.total_sum = d.total_sum + int(feature[d.name])
                         except:
-                                d.field_sum[0] = d.field_sum[0] + feature[d.name]
-                                d.total_sum = d.total_sum + feature[d.name]
+                                d.field_sum[0] = d.field_sum[0] + int(feature[d.name])
+                                d.total_sum = d.total_sum + int(feature[d.name])
 
 
     def updateTable(self):
@@ -941,14 +944,14 @@ class CandRRedistrict(object):
         districtId["0"] = 0
         for i in electorateNames:
                 if counter <= self.districts:
-                        districtName[counter] = i
+                        districtName[counter] = str(i)
                         districtId[str(i)] = counter
                         counter = counter + 1
                         QgsMessageLog.logMessage(i)
         if counter > self.districts:
                 for j in range(counter, self.districts):
-                        districtName[counter] = str(counter,"utf-8")
-                        districtId[str(i)] = counter
+                        districtName[counter] = str(counter)
+                        districtId[str(counter)] = counter
                         counter = counter + 1
         QgsMessageLog.logMessage(format(districtName))
         QgsMessageLog.logMessage(format(districtId))
